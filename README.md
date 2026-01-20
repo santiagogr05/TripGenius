@@ -36,7 +36,7 @@ So:
 
 ## 📦 Tech stack
 
-- **Python 3.11**
+- **Python 3.13**
     
 - **FastAPI**
     
@@ -145,7 +145,8 @@ docker compose up --build
 
 What this does:
 
-1. Builds a Docker image with Python 3.11
+1. Builds a Docker image with Python 3.13
+Docker is the **single source of truth** for the runtime environment.
     
 2. Installs dependencies from `requirements.txt`
     
