@@ -1,7 +1,19 @@
+from pydantic_settings import BaseSettings
+from typing import List
 
-from dotenv import load_dotenv
-import os
+class Settings(BaseSettings):
+    PROJECT_NAME: str = "My FastAPI App"
+    VERSION: str = "1.0.0"
+    DATABASE_URL: str = "sqlite:///./app.db"
+    ALLOWED_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:8000"]
+    
+    # JWT Settings
+    SECRET_KEY: str = "your-secret-key-change-this-in-production"
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    REFRESH_TOKEN_EXPIRE_DAYS: int = 7
+    
+    class Config:
+        env_file = ".env"
 
-load_dotenv()
-
-ENV = os.getenv("ENV", "development")
+settings = Settings()
